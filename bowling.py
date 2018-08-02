@@ -24,19 +24,19 @@ def new_main():
             frame_throws.append('X')
             total = sum(total_throws)
             print(total)
-            print(total_throws)
+            # print(total_throws)
             print(frame_throws)
         else:
             second_throw = input_second_throw(first_throw)
             if first_throw + second_throw == 10:
                 total_balls = first_throw + second_throw
-                print('YAY, you got a SPARE')
+                print('WOW, you got a SPARE!!')
                 total_throws.append(second_throw)
                 total_throws.append(total_balls)
                 frame_throws.append('/')
                 total = sum(total_throws)
                 print(total)
-                print(total_throws)
+                # print(total_throws)
                 print(frame_throws)
             else:
                 print('\nYou are doing a great job!')
@@ -45,10 +45,10 @@ def new_main():
                 frame_throws.append([second_throw, first_throw])
                 total = sum(total_throws)
                 print(total)
-                print(total_throws)
+                # print(total_throws)
                 print(frame_throws)
     print('You have a total of', total)
-    print('\nGoodbye', name)
+    print('\nThanks for playing', name, 'have a blessed day!')
 
 
 def input_first_throw(name):
@@ -56,7 +56,7 @@ def input_first_throw(name):
         score = int(input('\nHow many pins did you knock down? '))
 
         if score > 10:
-            print('There is only Ten Pins!!')
+            print('There is only Ten Pins quit cheating!!')
         else:
             return score
 
@@ -69,7 +69,7 @@ def input_second_throw(first_throw):
         pair_score = first_throw + second_throw
 
         if pair_score > 10:
-            print('There is only Ten Pins!!\n')
+            print('There is only Ten Pins quit cheating!!\n')
         else:
             return second_throw
 
