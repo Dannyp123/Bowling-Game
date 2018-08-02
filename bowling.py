@@ -7,11 +7,22 @@ def new_main():
         first_throw = input_first_throw(name)
         if first_throw == 10:
             print('AWESOME.... You got a strike!!')
-            total_throws.append(total_throws[0])
             total_throws.append(first_throw)
             frame_throws.append('X')
-            total = sum(total_throws)
+
+            total2 = sum(total_throws)
+            for i in range(len(frame_throws)):
+                if '10' in frame_throws[i]:
+                    ball_1 = frame_throws[i][0]
+                    total += ball_1
+                    if i + 1 > len(frame_throws):
+                        next_ball = frame_throws[i + 1][0][1]
+                        total = total + next_ball
+                    else:
+                        total = total + sum(frame_throws[i])
+                    total_throws.append(next_ball)
             print(total)
+            print(total2)
             print(total_throws)
             print(frame_throws)
         else:
@@ -30,13 +41,12 @@ def new_main():
                 print('\nYou are doing a great job!')
                 bowling_total = first_throw + second_throw
                 total_throws.append(bowling_total)
-                frame_throws.append(second_throw)
-                frame_throws.append(first_throw)
+                frame_throws.append([second_throw, first_throw])
                 total = sum(total_throws)
-                print(frame_throws)
-                print(total_throws)
                 print(total)
-    print('You have a total of', total)
+                print(total_throws)
+                print(frame_throws)
+    print('You have a total of', total2)
     print('\nGoodbye', name)
 
 
