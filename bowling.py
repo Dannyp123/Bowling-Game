@@ -1,3 +1,16 @@
+# for i in range(len(frame_throws)):
+
+#     if '10' in frame_throws[i]:
+#         ball_1 = frame_throws[i][0]
+#         # total += ball_1
+#         if i + 1 < len(frame_throws):
+#             next_ball = frame_throws[i + 1][0][1]
+#             total = total + next_ball
+#         else:
+#             total = total + sum(frame_throws[i])
+#         total_throws.append(next_ball)
+
+
 def new_main():
     total_throws = []
     frame_throws = []
@@ -9,20 +22,8 @@ def new_main():
             print('AWESOME.... You got a strike!!')
             total_throws.append(first_throw)
             frame_throws.append('X')
-
-            total2 = sum(total_throws)
-            for i in range(len(frame_throws)):
-                if '10' in frame_throws[i]:
-                    ball_1 = frame_throws[i][0]
-                    total += ball_1
-                    if i + 1 > len(frame_throws):
-                        next_ball = frame_throws[i + 1][0][1]
-                        total = total + next_ball
-                    else:
-                        total = total + sum(frame_throws[i])
-                    total_throws.append(next_ball)
+            total = sum(total_throws)
             print(total)
-            print(total2)
             print(total_throws)
             print(frame_throws)
         else:
@@ -46,7 +47,7 @@ def new_main():
                 print(total)
                 print(total_throws)
                 print(frame_throws)
-    print('You have a total of', total2)
+    print('You have a total of', total)
     print('\nGoodbye', name)
 
 
