@@ -1,6 +1,5 @@
 def new_main():
     score_times = []
-    score_totals = []
     name = input("Player's name: ")
     for frame in range(1, 10):
         print_frame(frame)
@@ -19,10 +18,9 @@ def new_main():
                 print('You bowled great!')
                 bowling_total = first_throw + second_throw
                 score_times.append(bowling_total)
-                # total2 = sum(score_times)
-                # score_times.append(total2)
+                total = sum(score_times)
                 print(score_times)
-    print('You have a total of', bowling_total)
+    print('You have a total of', total)
     print('\nGoodbye', name)
 
 
