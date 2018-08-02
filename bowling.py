@@ -1,47 +1,63 @@
-def main():
+def new_main():
     score_times = []
     score_totals = []
     name = input("Player's name: ")
+    for frame in range(1, 10):
+        print_frame(frame)
+        first_throw = input_first_throw(name)
+        if first_throw == 10:
+            print('AWESOME.... You got a strike!!')
+            score_times.append(first_throw)
+            print(score_times)
+        else:
+            second_throw = input_second_throw(first_throw)
+            if first_throw + second_throw == 10:
+                print('YAY, you got a SPARE')
+                score_times.append(second_throw)
+                print(score_times)
+            else:
+                print('You bowled great!')
+                bowling_total = first_throw + second_throw
+                score_times.append(bowling_total)
+                # total2 = sum(score_times)
+                # score_times.append(total2)
+                print(score_times)
+    print('You have a total of', bowling_total)
+    print('\nGoodbye', name)
 
-    for frames in range(1, 10):
-        print('\nFrame', frames)
-        while True:
-            quitting = input(
-                '\nDo you wanna quit, if so type quit to do so if not hit enter to continue!! '
+
+def input_first_throw(name):
+    while True:
+        score = int(input('\nHow many pins did you knock down? '))
+
+        if score > 10:
+            print('There is only Ten Pins!!')
+        else:
+            print(
+                '\nKeep Bowling, its still your turn',
+                name,
             )
-            if quitting == 'quit':
-                print(name, "is finished!")
-                print(name, "'s", 'Total: ', total2)
-                exit()
-            score = int(input('\nHow many pins did you knock down? '))
+            return score
 
-            if score > 10:
-                print('There is only Ten Pins!!')
-            else:
-                print(
-                    '\nKeep Bowling, its still your turn',
-                    name,
-                )
-                score_times.append(score)
-                break
 
-        while True:
-            score_2 = int(
-                input('\nHow many pins did you knock down this time? '))
-            total = score + score_2
-            if score > 10:
-                print('There is only Ten Pins!!\n')
-            else:
-                score_times.append(score_2)
-                break
-        score_times.append(score_2)
+def input_second_throw(first_throw):
+    while True:
+        second_throw = int(
+            input('\nHow many pins did you knock down this time? '))
 
-        score_totals.append(total)
+        pair_score = first_throw + second_throw
 
-        total2 = sum(score_totals)
-        print(score_totals)
-        print(total2)
+        if pair_score > 10:
+            print('There is only Ten Pins!!\n')
+        else:
+            return second_throw
+
+
+def print_frame(frame):
+    print('---------------------------------------------------------')
+    print('Frame: ', frame)
+    print('---------------------------------------------------------')
 
 
 if __name__ == '__main__':
-    main()
+    new_main()
